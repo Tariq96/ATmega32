@@ -29,10 +29,10 @@ _delay_ms(10);
 void_LCD_init_Command(0x20);
 _delay_ms(10);
 _delay_ms(10);
-void_lcd_send_command(0x28);                          // intializing the lcd in the bit bus mode
-void_lcd_send_command(0x0C);					      // turning the curser off
-void_lcd_send_command(0x06);					      // setting the lcd in incrimental mode
-void_lcd_send_command(0x80);				          // adress 80H in the DDRAM
+void_lcd_send_command(_4bit);                          // intializing the lcd in the bit bus mode
+void_lcd_send_command(cursor_off);					      // turning the curser off
+void_lcd_send_command(incrimental);					      // setting the lcd in incrimental mode
+void_lcd_send_command(set_ddram_80h);				          // adress 80H in the DDRAM
 _delay_ms(20);
 }
 void void_lcd_send_command( char command)

@@ -5,30 +5,24 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../HAL/F90_RTC.c \
-../HAL/F91_LCD.c \
 ../HAL/Keypad.c \
 ../HAL/LCD.c \
-../HAL/LCD_temp.c \
 ../HAL/LED.c \
 ../HAL/RTC.c \
 ../HAL/TEMP.c 
 
 OBJS += \
 ./HAL/F90_RTC.o \
-./HAL/F91_LCD.o \
 ./HAL/Keypad.o \
 ./HAL/LCD.o \
-./HAL/LCD_temp.o \
 ./HAL/LED.o \
 ./HAL/RTC.o \
 ./HAL/TEMP.o 
 
 C_DEPS += \
 ./HAL/F90_RTC.d \
-./HAL/F91_LCD.d \
 ./HAL/Keypad.d \
 ./HAL/LCD.d \
-./HAL/LCD_temp.d \
 ./HAL/LED.d \
 ./HAL/RTC.d \
 ./HAL/TEMP.d 
