@@ -1,0 +1,6 @@
+MCAL/F90_PWM.o MCAL/F90_PWM.o: ../MCAL/F90_PWM.c \
+  ../MCAL/../MCAL/F90_PWM.h ../MCAL/../MCAL/F90_DIO.h
+
+../MCAL/../MCAL/F90_PWM.h:
+
+../MCAL/../MCAL/F90_DIO.h:

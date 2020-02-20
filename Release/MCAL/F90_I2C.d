@@ -1,0 +1,6 @@
+MCAL/F90_I2C.o MCAL/F90_I2C.o: ../MCAL/F90_I2C.c \
+  ../MCAL/../MCAL/F90_I2C.h ../MCAL/../MCAL/F90_DIO.h
+
+../MCAL/../MCAL/F90_I2C.h:
+
+../MCAL/../MCAL/F90_DIO.h:

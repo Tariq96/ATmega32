@@ -1,0 +1,6 @@
+MCAL/F90_ADC.o MCAL/F90_ADC.o: ../MCAL/F90_ADC.c \
+  ../MCAL/../MCAL/F90_DIO.h ../MCAL/../MCAL/F90_ADC.h
+
+../MCAL/../MCAL/F90_DIO.h:
+
+../MCAL/../MCAL/F90_ADC.h:

@@ -1,0 +1,3 @@
+HAL/RTC.o HAL/RTC.o: ../HAL/RTC.c ../HAL/../MCAL/F90_I2C.h
+
+../HAL/../MCAL/F90_I2C.h:

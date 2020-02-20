@@ -1,0 +1,6 @@
+MCAL/F90_SPI.o MCAL/F90_SPI.o: ../MCAL/F90_SPI.c \
+  ../MCAL/../MCAL/F90_DIO.h ../MCAL/../MCAL/F90_SPI.h
+
+../MCAL/../MCAL/F90_DIO.h:
+
+../MCAL/../MCAL/F90_SPI.h:
