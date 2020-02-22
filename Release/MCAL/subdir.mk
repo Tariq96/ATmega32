@@ -11,7 +11,8 @@ C_SRCS += \
 ../MCAL/F90_PWM.c \
 ../MCAL/F90_SPI.c \
 ../MCAL/F90_TIMER_0.c \
-../MCAL/F90_UART2.c 
+../MCAL/F90_UART2.c \
+../MCAL/TIMER.c 
 
 OBJS += \
 ./MCAL/DIO.o \
@@ -21,7 +22,8 @@ OBJS += \
 ./MCAL/F90_PWM.o \
 ./MCAL/F90_SPI.o \
 ./MCAL/F90_TIMER_0.o \
-./MCAL/F90_UART2.o 
+./MCAL/F90_UART2.o \
+./MCAL/TIMER.o 
 
 C_DEPS += \
 ./MCAL/DIO.d \
@@ -31,7 +33,8 @@ C_DEPS += \
 ./MCAL/F90_PWM.d \
 ./MCAL/F90_SPI.d \
 ./MCAL/F90_TIMER_0.d \
-./MCAL/F90_UART2.d 
+./MCAL/F90_UART2.d \
+./MCAL/TIMER.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

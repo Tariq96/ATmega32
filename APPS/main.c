@@ -12,10 +12,64 @@
 #include <util/delay.h>
 #include "../HAL/keypad.h"
 #include "../HAL/LCD.h"
-
+#include "../MCAL/TIMER.h"
 #include <stdio.h>
 
 
+
+
+
+int main()
+{
+
+	//char string[50];
+	//void_init_lcd();
+	void_init_pin('a',0,1);
+	void_init_pin('b',3,1);
+	void_init_TIMER(Timer0,PWM_phase_correct,1024,none_inverting);
+	OCR0=125;
+	while (1)
+	{
+		SET_BIT(PORTA,0);
+		_delay_ms(20);
+		CLEAR_BIT(PORTA,0);
+		_delay_ms(20);
+
+
+	}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 int main()
 
@@ -61,7 +115,7 @@ while (1)
 }
 
 
-
+*/
 
 
 
