@@ -7,34 +7,41 @@
 /*innclude os header files */
 
 
-
 #include "../MCAL/DIO.h"
 #include <util/delay.h>
 #include "../HAL/keypad.h"
 #include "../HAL/LCD.h"
 #include "../MCAL/TIMER.h"
 #include <stdio.h>
+#include "../Services_layers/Services_layers.h"
+#include <avr/interrupt.h>
+
+
 
 
 
 
 
 int main()
-{
+{	sei();
+	void_init_pin('a',1,1);
+	void_write_pin('a',1,1);
+	void_init_pin('a',2,1);
+	void_write_pin('a',2,1);
 
-	//char string[50];
-	//void_init_lcd();
-	void_init_pin('a',0,1);
-	void_init_pin('b',3,1);
-	void_init_TIMER(Timer0,PWM_phase_correct,1024,none_inverting);
-	OCR0=125;
+	//SET_BIT(TCCR0,CS00);
+	//SET_BIT(TCCR0,CS02);
+	void_init_TIMER(Timer2,PWM,1,diconnected);
+	void_set_duty(Timer2,10);
+	void_init_timer_interrupt(Timer2, 0);
+
 	while (1)
 	{
-		SET_BIT(PORTA,0);
-		_delay_ms(20);
-		CLEAR_BIT(PORTA,0);
-		_delay_ms(20);
-
+		for (int i=0;i<=100;i++)
+		{
+			void_set_duty(Timer2,i);
+			_delay_ms(10);
+		}
 
 	}
 
@@ -42,16 +49,16 @@ int main()
 
 
 
-
 }
 
+ISR(TIMER2_COMP_vect)
+{
+	TOGGLE_BIT(PORTA,1);
+	TOGGLE_BIT(PORTA,2);
 
 
 
-
-
-
-
+}
 
 
 

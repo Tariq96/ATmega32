@@ -17,13 +17,13 @@ c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mul_sf.o)
                               ./MCAL/F90_PWM.o (__mulsf3)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_div_sf.o)
-                              ./HAL/TEMP.o (__divsf3)
+                              ./MCAL/TIMER.o (__divsf3)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_ge_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__gesf2)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_si_to_sf.o)
                               ./HAL/TEMP.o (__floatsisf)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_sf_to_si.o)
-                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o) (__fixsfsi)
+                              ./MCAL/TIMER.o (__fixsfsi)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_thenan_sf.o)
                               c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o) (__thenan_sf)
 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
@@ -171,7 +171,7 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1d42
+.text           0x00000000     0x20d2
  *(.vectors)
  .vectors       0x00000000       0x54 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -238,7 +238,6 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x0000008e                __vector_19
                 0x0000008e                __vector_7
                 0x0000008e                __vector_5
-                0x0000008e                __vector_4
                 0x0000008e                __vector_9
                 0x0000008e                __vector_2
                 0x0000008e                __vector_15
@@ -391,82 +390,91 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
                 0x00001708        0x8 ./MCAL/F90_UART2.o
                 0x00001708                F90_VOID_READ
  .text.void_init_TIMER
-                0x00001710        0x2 ./MCAL/TIMER.o
+                0x00001710      0x292 ./MCAL/TIMER.o
                 0x00001710                void_init_TIMER
+ .text.void_set_duty
+                0x000019a2       0x52 ./MCAL/TIMER.o
+                0x000019a2                void_set_duty
+ .text.void_init_timer_interrupt
+                0x000019f4       0x34 ./MCAL/TIMER.o
+                0x000019f4                void_init_timer_interrupt
  .text.F90_DecToBcdConvert
-                0x00001712       0x14 ./HAL/F90_RTC.o
+                0x00001a28       0x14 ./HAL/F90_RTC.o
  .text.F90_void_RTC_Settime
-                0x00001726       0x70 ./HAL/F90_RTC.o
-                0x00001726                F90_void_RTC_Settime
+                0x00001a3c       0x70 ./HAL/F90_RTC.o
+                0x00001a3c                F90_void_RTC_Settime
  .text.F90_void_RTC_Gettime
-                0x00001796       0xa0 ./HAL/F90_RTC.o
-                0x00001796                F90_void_RTC_Gettime
+                0x00001aac       0xa0 ./HAL/F90_RTC.o
+                0x00001aac                F90_void_RTC_Gettime
  .text.F90_void_RTC_init
-                0x00001836        0xc ./HAL/F90_RTC.o
-                0x00001836                F90_void_RTC_init
+                0x00001b4c        0xc ./HAL/F90_RTC.o
+                0x00001b4c                F90_void_RTC_init
  .text.key_read_keypad
-                0x00001842       0x8a ./HAL/Keypad.o
-                0x00001842                key_read_keypad
+                0x00001b58       0x8a ./HAL/Keypad.o
+                0x00001b58                key_read_keypad
  .text.void_init_keypad
-                0x000018cc       0x8e ./HAL/Keypad.o
-                0x000018cc                void_init_keypad
+                0x00001be2       0x8e ./HAL/Keypad.o
+                0x00001be2                void_init_keypad
  .text.void_pulse
-                0x0000195a       0x2e ./HAL/LCD.o
-                0x0000195a                void_pulse
+                0x00001c70       0x2e ./HAL/LCD.o
+                0x00001c70                void_pulse
  .text.void_LCD_init_Command
-                0x00001988       0x22 ./HAL/LCD.o
-                0x00001988                void_LCD_init_Command
+                0x00001c9e       0x22 ./HAL/LCD.o
+                0x00001c9e                void_LCD_init_Command
  .text.void_lcd_send_data
-                0x000019aa       0x30 ./HAL/LCD.o
-                0x000019aa                void_lcd_send_data
+                0x00001cc0       0x30 ./HAL/LCD.o
+                0x00001cc0                void_lcd_send_data
  .text.void_lcd_print
-                0x000019da       0x18 ./HAL/LCD.o
-                0x000019da                void_lcd_print
+                0x00001cf0       0x18 ./HAL/LCD.o
+                0x00001cf0                void_lcd_print
  .text.void_lcd_send_command
-                0x000019f2       0x30 ./HAL/LCD.o
-                0x000019f2                void_lcd_send_command
+                0x00001d08       0x30 ./HAL/LCD.o
+                0x00001d08                void_lcd_send_command
  .text.void_lcd_goto
-                0x00001a22       0x34 ./HAL/LCD.o
-                0x00001a22                void_lcd_goto
+                0x00001d38       0x34 ./HAL/LCD.o
+                0x00001d38                void_lcd_goto
  .text.void_lcd_clear
-                0x00001a56        0x8 ./HAL/LCD.o
-                0x00001a56                void_lcd_clear
+                0x00001d6c        0x8 ./HAL/LCD.o
+                0x00001d6c                void_lcd_clear
  .text.void_init_lcd
-                0x00001a5e       0xa0 ./HAL/LCD.o
-                0x00001a5e                void_init_lcd
+                0x00001d74       0xa0 ./HAL/LCD.o
+                0x00001d74                void_init_lcd
  .text.void_toggle
-                0x00001afe       0x38 ./HAL/LED.o
-                0x00001afe                void_toggle
+                0x00001e14       0x38 ./HAL/LED.o
+                0x00001e14                void_toggle
  .text.void_turn
-                0x00001b36       0x66 ./HAL/LED.o
-                0x00001b36                void_turn
+                0x00001e4c       0x66 ./HAL/LED.o
+                0x00001e4c                void_turn
  .text.void_init_led
-                0x00001b9c       0x3c ./HAL/LED.o
-                0x00001b9c                void_init_led
+                0x00001eb2       0x3c ./HAL/LED.o
+                0x00001eb2                void_init_led
  .text.void_init_leds
-                0x00001bd8       0x2a ./HAL/LED.o
-                0x00001bd8                void_init_leds
+                0x00001eee       0x2a ./HAL/LED.o
+                0x00001eee                void_init_leds
  .text.TEMP_READ
-                0x00001c02       0x36 ./HAL/TEMP.o
-                0x00001c02                TEMP_READ
- .text.main     0x00001c38       0x3c ./APPS/main.o
-                0x00001c38                main
- .text.libgcc   0x00001c74       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
-                0x00001c74                __udivmodqi4
- .text.libgcc   0x00001c8c       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001c8c                __udivmodsi4
- .text.libgcc   0x00001cd0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001cd0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00001cd0        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001cd0       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001cd0                __prologue_saves__
- .text.libgcc   0x00001d08       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00001d08                __epilogue_restores__
-                0x00001d3e                . = ALIGN (0x2)
+                0x00001f18       0x36 ./HAL/TEMP.o
+                0x00001f18                TEMP_READ
+ .text.__vector_4
+                0x00001f4e       0x2c ./APPS/main.o
+                0x00001f4e                __vector_4
+ .text.main     0x00001f7a       0x8a ./APPS/main.o
+                0x00001f7a                main
+ .text.libgcc   0x00002004       0x18 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodqi4.o)
+                0x00002004                __udivmodqi4
+ .text.libgcc   0x0000201c       0x44 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodsi4.o)
+                0x0000201c                __udivmodsi4
+ .text.libgcc   0x00002060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00002060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00002060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00002060       0x38 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00002060                __prologue_saves__
+ .text.libgcc   0x00002098       0x36 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00002098                __epilogue_restores__
+                0x000020ce                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001d3e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001d3e                exit
-                0x00001d3e                _exit
+ .fini9         0x000020ce        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x000020ce                exit
+                0x000020ce                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -485,11 +493,11 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001d3e        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x000020ce        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001d42                _etext = .
+                0x000020d2                _etext = .
 
-.data           0x00800060      0x116 load address 0x00001d42
+.data           0x00800060      0x116 load address 0x000020d2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -598,8 +606,8 @@ LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a
  COMMON         0x0080017b        0x1 ./MCAL/F90_UART2.o
                 0x0080017b                i
                 0x0080017c                PROVIDE (__bss_end, .)
-                0x00001d42                __data_load_start = LOADADDR (.data)
-                0x00001e58                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000020d2                __data_load_start = LOADADDR (.data)
+                0x000021e8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080017c        0x0
                 0x0080017c                PROVIDE (__noinit_start, .)
