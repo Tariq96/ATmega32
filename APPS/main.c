@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "../Services_layers/Services_layers.h"
 #include <avr/interrupt.h>
-
+#include "../MCAL/ADC.h"
 
 
 
@@ -23,26 +23,18 @@
 
 
 int main()
-{	sei();
-	void_init_pin('a',1,1);
-	void_write_pin('a',1,1);
-	void_init_pin('a',2,1);
-	void_write_pin('a',2,1);
-
-	//SET_BIT(TCCR0,CS00);
-	//SET_BIT(TCCR0,CS02);
-	void_init_TIMER(Timer2,PWM,1,diconnected);
-	void_set_duty(Timer2,10);
-	void_init_timer_interrupt(Timer2, 0);
-
+{
+	int value;
+	char LCD[50];
+	void_init_ADC(64,0,0,0,0,0);
+	void_init_lcd();
 	while (1)
 	{
-		for (int i=0;i<=100;i++)
-		{
-			void_set_duty(Timer2,i);
-			_delay_ms(10);
-		}
-
+		value=int_ADC_read(6);
+		sprintf(LCD,"value is: %d",value);
+		void_lcd_print(LCD);
+		_delay_ms(5000);
+		void_lcd_clear();
 	}
 
 
@@ -50,16 +42,6 @@ int main()
 
 
 }
-
-ISR(TIMER2_COMP_vect)
-{
-	TOGGLE_BIT(PORTA,1);
-	TOGGLE_BIT(PORTA,2);
-
-
-
-}
-
 
 
 
