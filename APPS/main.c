@@ -35,7 +35,7 @@ int main()
 		//value=int_ADC_read(5);
 		//value= (value*4.88)/10;
 		value=TEMP_READ();
-		sprintf(LCD,"temp is: %d",value);
+		sprintf(LCD,"temp is:%dc",value);
 		void_lcd_clear();
 		void_lcd_print(LCD);
 		_delay_ms(100);
