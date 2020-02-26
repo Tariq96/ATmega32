@@ -58,20 +58,22 @@ case 0:
 	CLEAR_BIT(ADMUX,REFS1);
 	break;
 case 1:
-	CLEAR_BIT(ADMUX,REFS0);
+	SET_BIT(ADMUX,REFS0);
 	CLEAR_BIT(ADMUX,REFS1);
 	break;
 case 2:
-	CLEAR_BIT(ADMUX,REFS0);
-	CLEAR_BIT(ADMUX,REFS1);
+	SET_BIT(ADMUX,REFS0);
+	SET_BIT(ADMUX,REFS1);
 	break;
 }
+//--------------------------------------------------left adjusting --------------------------------------
+
 //--------------------------------------------------------selecting the intital channel -------------------
 switch(channel)
-{
+{/*
 case 0:
 	ADMUX=(ADMUX&0XF0)|0;
-	break;
+	break;*/
 case 1:
 	ADMUX=(ADMUX&0XF0)|1;
 	break;
@@ -172,6 +174,7 @@ int int_ADC_read(char channel)
 {
 
 	//-----------------------------------------------choosing channel-----------------------------
+
 	switch(channel)
 	{
 	case 0:
@@ -198,10 +201,15 @@ int int_ADC_read(char channel)
 	case 7:
 		ADMUX=(ADMUX&0XF0)|7;
 		break;
+	default :
+		break;
 
 	}
+
 SET_BIT(ADCSRA,ADSC);
-_delay_ms(1000);
-return ((ADCH<<2 )|  (ADCL>>6));
+_delay_us(50);
+int adcl=ADCL;
+
+return ((ADCH<<2) | (adcl>>6)) ;
 
 }

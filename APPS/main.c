@@ -16,6 +16,7 @@
 #include "../Services_layers/Services_layers.h"
 #include <avr/interrupt.h>
 #include "../MCAL/ADC.h"
+#include "../HAL/TEMP.h"
 
 
 
@@ -26,15 +27,19 @@ int main()
 {
 	int value;
 	char LCD[50];
-	void_init_ADC(64,0,0,0,0,0);
+
 	void_init_lcd();
+	//void_init_pin('a',7,0);
 	while (1)
 	{
-		value=int_ADC_read(6);
-		sprintf(LCD,"value is: %d",value);
-		void_lcd_print(LCD);
-		_delay_ms(5000);
+		//value=int_ADC_read(5);
+		//value= (value*4.88)/10;
+		value=TEMP_READ();
+		sprintf(LCD,"temp is: %d",value);
 		void_lcd_clear();
+		void_lcd_print(LCD);
+		_delay_ms(100);
+
 	}
 
 

@@ -5,14 +5,14 @@
  *      Author: Tariq A.Diab
  */
 #include "../HAL/TEMP.h"
-#include "../MCAL/F90_ADC.h"
-adc_t adc={128,0,0,3,5};
+#include "../MCAL/ADC.h"
 
 
 float TEMP_READ()
 {
-	ADC_INIT(&adc);
-	float temp=ADC_READ();
+	void_init_ADC(64,1,5,0,0,0);
+
+	float temp=int_ADC_read(5);
 	return (temp*4.88)/10;
 
 
