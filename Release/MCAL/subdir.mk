@@ -6,7 +6,6 @@
 C_SRCS += \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
-../MCAL/F90_ADC.c \
 ../MCAL/F90_I2C.c \
 ../MCAL/F90_SPI.c \
 ../MCAL/F90_UART2.c \
@@ -15,7 +14,6 @@ C_SRCS += \
 OBJS += \
 ./MCAL/ADC.o \
 ./MCAL/DIO.o \
-./MCAL/F90_ADC.o \
 ./MCAL/F90_I2C.o \
 ./MCAL/F90_SPI.o \
 ./MCAL/F90_UART2.o \
@@ -24,7 +22,6 @@ OBJS += \
 C_DEPS += \
 ./MCAL/ADC.d \
 ./MCAL/DIO.d \
-./MCAL/F90_ADC.d \
 ./MCAL/F90_I2C.d \
 ./MCAL/F90_SPI.d \
 ./MCAL/F90_UART2.d \

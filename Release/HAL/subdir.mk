@@ -9,7 +9,8 @@ C_SRCS += \
 ../HAL/LCD.c \
 ../HAL/LED.c \
 ../HAL/RTC.c \
-../HAL/TEMP.c 
+../HAL/TEMP.c \
+../HAL/uln2003.c 
 
 OBJS += \
 ./HAL/F90_RTC.o \
@@ -17,7 +18,8 @@ OBJS += \
 ./HAL/LCD.o \
 ./HAL/LED.o \
 ./HAL/RTC.o \
-./HAL/TEMP.o 
+./HAL/TEMP.o \
+./HAL/uln2003.o 
 
 C_DEPS += \
 ./HAL/F90_RTC.d \
@@ -25,7 +27,8 @@ C_DEPS += \
 ./HAL/LCD.d \
 ./HAL/LED.d \
 ./HAL/RTC.d \
-./HAL/TEMP.d 
+./HAL/TEMP.d \
+./HAL/uln2003.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
